@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.docbook.org/xml/4.5/docbookx.dtd">
+<article>
+    <title>Quick Start - Ubuntu Linux</title>
+    <sect1>
+        <title>Prerequisites</title>
+        <para>
+    		This tutorial will help you install Storm on Ubuntu Linux. Please see one of the other Quick Start tutorials if you 
+    		use a different platform:
+        	<itemizedlist>
+                <listitem>
+                    <para>Quick Start for RedHat, Centos and Oracle Linux</para>                
+                </listitem>
+                <listitem>
+                    <para>Quick Start for Linux (generic)</para>
+                </listitem>
+                <listitem>
+                    <para>Quick Start for Mac</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </sect1>  
+    <sect1>
+        <title>Introduction</title>
+        <para>
+        	This tutorial provides instructions to get up and running with Storm quickly and
+            easily. The instructions in this tutorial show you how to setup Storm in local mode, which is
+            the initial mode you'll want to use for development.
+        </para>
+        <para>
+        	Local mode has two main uses:
+            <itemizedlist>
+                <listitem>
+                    <para>To develop Storm topologies</para>                
+                </listitem>
+                <listitem>
+                    <para>To deploy a topology to a cluster</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>
+        	In this tutorial, we'll focus on setting up a Storm development environment which will allow you 
+        	to develop Storm topologies.
+        </para>
+    </sect1>
+    <sect1>
+        <title>Download Storm</title>
+        <para>
+        	Installing wget may not be required if you already have it installed. However running apt-get 
+        	here is perfectly safe as it'll either install wget if you don't have it installed, or will do
+        	nothing if wget is already installed.  
+        </para>
+        <para><code>sudo apt-get install wget</code></para>
+        <para>
+        	Next, we'll setup a few directories to download and install Storm into. I like to keep all
+        	packages that are installed in my <emphasis>home</emphasis> directory under a <emphasis>packages</emphasis>
+        	directory. Then I like to symlink the versioned directories in <emphasis>packages</emphasis> to an 
+        	unversioned directory in <emphasis>~/bin</emphasis>. This makes it easy to upgrade Storm in a development
+        	environment, and also makes it trivially simple to switch between various versions of Storm.
+        </para>
+        <para><code>mkdir ~/bin</code></para>
+        <para><code>mkdir -p ~/packages/storm</code></para>
+        <para><code>cd ~/packages/storm</code></para>
+        <para>
+        	And now let's download Storm.
+    	</para>
+        <para><code>wget https://github.com/downloads/nathanmarz/storm/storm-0.8.1.zip</code></para>
+    </sect1>
+    <sect1>
+        <title>Install Storm</title>
+        <para><code>unzip storm-0.8.1.zip</code></para>
+        <para><code>ln -s ~/packages/storm/storm-0.8.1 ~/bin/storm</code></para>
+        <para>
+        	Congrats. Storm is now installed. 	      	
+        </para>
+    </sect1>
+    <sect1>
+        <title>Run the Storm Starter code</title>
+        <para>
+        	We're now going to download and run the Storm Starter code. Storm Starter is a Java 
+        	project that demonstrates how Storm works, including how to create various Spouts and Bolts. 
+        	The Storm Starter project is a great place to start reading Java code on how to implement
+        	various features in Storm.
+    	</para>
+    	<para>
+    		As with wget above, we'll run apt-get to install Git and Maven to ensure that all necessary 
+    		sofware is available for our use.
+    	</para>
+        <para><code>sudo apt-get install git maven</code></para>
+        <para>
+        	We're going to create a <emphasis>storm</emphasis> directory in our <emphasis>home</emphasis> directory, which
+        	will be where we'll store all of our Storm development code. Please feel free to modify the path below
+        	if you already have a directory structure that you prefer. For example, if you use Eclipse then you will 
+        	likely want to manage all code underneath  your default Eclipse workspace. 
+        </para>
+        <para><code>mkdir ~/storm</code></para>
+        <para><code>cd ~/storm</code></para>
+        <para>
+        	Let's grab the Storm Starter project from GitHub.
+        </para>
+        <para><code>git clone https://github.com/nathanmarz/storm-starter.git</code></para>
+        <para><code>cd ~/storm/storm-starter</code></para>
+        <para>
+        	We're now ready to compile and run the Word Count Topology using Maven. You'll see a large number of tuples
+        	stream past in your terminal (hope you can read fast).
+        </para>
+		<para><code>mvn -f m2-pom.xml compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=storm.starter.WordCountTopology</code></para>
+		<para>
+        	As a last step, let's run the Exclamation Topology using Maven. 
+        </para>
+		<para><code>mvn -f m2-pom.xml compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=storm.starter.ExclamationTopology</code></para>
+    </sect1>
+    <sect1>
+    	<title>Next Steps</title>
+    	<para>
+        	Importantly, this tutorial is intenionally minimalistic as its purpose is to help you get a working
+        	Storm development environment in under 15 minutes. It is strongly recommended that you read about
+        	Storm's architecture, terminology, API, deployment process and so on to familiarize yourself with 
+        	all that Storm has to offer.
+        	<itemizedlist>
+                <listitem>
+                    <para>Introduction to Storm</para>                
+                </listitem>
+                <listitem>
+                    <para>Storm's Architecture</para>
+                </listitem>
+                <listitem>
+                    <para>Terminology</para>
+                </listitem>
+                <listitem>
+                    <para>API</para>
+                </listitem>
+                <listitem>
+                    <para>Development Process</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </sect1>
+</article>

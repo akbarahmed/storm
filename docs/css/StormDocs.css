@@ -1,0 +1,100 @@
+﻿/*
+    --------------------------------
+    -- Storm Documentation Styles --
+    --------------------------------
+*/
+
+body {
+	font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	color: #353535;
+	line-height: 21px;
+	font-size: 14px;
+}
+
+/*
+ * Headings
+ */
+
+h2 {
+	display: block;
+	color: #444;
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: bold;
+	margin: 35px 0px 17px 0px;
+	padding: 0;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+/*
+ * Table of Contents
+ */
+
+.toc {
+	background-color: #eee;
+	border: 1px solid #c0c0c0;
+	padding-left: 7px;
+}
+
+.toc > dl > dt {
+	margin-left: 25px;
+	display: list-item;
+}
+
+/*
+ * Links
+ */
+
+a, a:active, a:visited {
+	color: #005FB7;
+	text-decoration: none;
+	outline: 0;
+	line-height: 21px;
+	font-size: 14px;
+	cursor: auto;
+}
+
+a:hover{
+	color: #005FB7;
+	text-decoration: underline;
+	outline: 0;
+	line-height: 21px;
+	font-size: 14px;
+	cursor: auto;
+}
+
+/*
+ * Lists
+ */
+
+li {
+	margin: 0px;
+	padding: 0;
+	line-height: 14px;
+}
+
+li > p {
+	/* Cleaning up some of the browser defaults for Firefox */
+	-webkit-margin-before: 0px;
+	-webkit-margin-after: .5em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+/*
+ * Code Examples and Commands
+ */
+
+code {
+    background-color:#fdfdfd;
+    border: 1px solid #dfdfdf;
+    border-left: 2px solid #c0c0c0;
+    color: #333;
+    font-family: ‘Courier New’, Courier, monospace;
+    width: 95%;
+    display: block;
+    padding: 12px;
+    margin-left: 15px;
+	margin-right: 15px;
+}
