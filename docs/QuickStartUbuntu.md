@@ -14,10 +14,8 @@ easily. The instructions in this tutorial show you how to setup Storm in local
 mode, which is the initial mode you'll want to use for development.
 
 Local mode has two main uses:
-
-To develop Storm topologies
-
-To deploy a topology to a cluster
+- To develop Storm topologies
+- To deploy a topology to a cluster
 
 In this tutorial, we'll focus on setting up a Storm development environment which 
 will allow you to develop Storm topologies.
