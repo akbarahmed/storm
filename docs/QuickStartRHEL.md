@@ -78,6 +78,8 @@ We first need to switch to the root account, then we'll install git and maven.
 	su -
 	
     yum install git
+    
+    exit
 
 Installing Maven is a bit more involved.
    
@@ -85,22 +87,29 @@ Installing Maven is a bit more involved.
     
     cd ~/packages/maven
     
-    wget http://www.alliedquotes.com/mirrors/apache//maven/binaries/apache-maven-2.2.1-bin.tar.gz
-
-    chmod 700 apache-maven-2.2.1-bin.tar.gz
+    wget http://apache.mirrors.lucidnetworks.net/maven/maven-2/2.2.1/binaries/apache-maven-2.2.1-bin.tar.gz
 
     tar xzf apache-maven-2.2.1-bin.tar.gz
 
-    ln -s ~/packages/maven/apache-maven-2.2.1 /bin/maven
+    ln -s ~/packages/maven/apache-maven-2.2.1 ~/bin/maven
 
-    vi ~./.bashrc
+    vi ~/.bash_profile
 
 Update the PATH to
-export PATH=${PATH}:/home/akbar/bin/maven/bin
+PATH=$PATH:$HOME/bin:$HOME/bin/maven/bin
 
-    bash
+    source ~/.bash_profile
+    
+Check that the path is set correctly.
+
+    echo $PATH
+    
+    which mvn
 
     mvn –version
+
+You should see multiple lines of output, including:
+*Apache Maven 2.2.1*
 
 We're going to create a storm directory in our home directory, which will be 
 where we'll store all of our Storm development code. Please feel free to modify 
